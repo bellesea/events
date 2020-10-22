@@ -2,6 +2,7 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import { range, sample, random } from 'lodash'
+import { useState } from 'react'
 import { Box, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
 
@@ -31,7 +32,7 @@ const Sparkles = ({
 }) => {
   const allColors = colors.map(n => theme.colors[n])
   const getColor = () => sample(allColors)
-  const [sparkles, setSparkles] = React.useState(() => {
+  const [sparkles, setSparkles] = useState(() => {
     return range(3).map(() => generateSparkle(getColor()))
   })
   const prefersReducedMotion = usePrefersReducedMotion()
